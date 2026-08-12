@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>letter to mr divine</title>
+</head>
+
+<body>
+
+        <address id="senders adress " style="text-align: right;"
+        <p> 678 ikeja road</p>
+        <p> surulere</p>
+    <p> lagos</p>
+    </adress>
+    
+    <!-- date section -->
+     <section id="date" style ="text-align: right; font-weight: bold;">
+        <p> 12th june 2026</p>
+        </section>
+
+        <!-- recievers section -->
+        <address id="recievers address" style="text-align: left;">
+            <p> Mr divine</p>
+            <p> 123 ikeja road</p>
+            <p> surulere</p>
+            <p> lagos</p>
+            </address>
+        </section>
+
+    <!-- subject section -->
+    <section id="subject" style="text-align: center; 
+
+<u> font-weight: bold;">
+        <p><u>How the class is and my experience, class and suggestion</u></p>
+    </section>
+
+    <!-- body section -->
+    <section id="body" style="text-align: justify;">
+        <p> Dear Mr Divine,</p>
+        <p> I hope this letter finds you well. I am writing to request a meeting with you to discuss potential collaboration opportunities between our organizations. Your expertise and insights would be invaluable in exploring ways we can work together to achieve our mutual goals.</p>
+        <p> Please let me know your availability for a meeting at your earliest convenience. I am flexible with dates and times and will do my best to accommodate your schedule.</p>
+        <p> Thank you for considering my request. I look forward to your positive response.</p>
+    </section>
+
+    <!-- closing section -->
+    <section id="closing" style="text-align: right;">
+        <p> Sincerely,</p>
+        <img src="IMAGE/SIGNATURE.png"  style="width: 200px; height: auto;">
+        <p> JESSE CHINEDUM NDUBUZO</p>
+        <p> </p>
+        <p></p>
+    </section>
+
+
+
+    
