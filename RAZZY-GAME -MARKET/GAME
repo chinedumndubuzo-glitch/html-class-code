@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAYZZY GAME MARKET - Buy. Sell. Game.</title>
+    <meta name="description" content="Discover gaming accounts and digital gaming products from verified marketplace users.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="logo">RAYZZY<span>GAME</span></div>
+        <input type="text" class="search-bar" placeholder="Search games, accounts...">
+        <div class="nav-buttons">
+            <a href="login.html" class="btn btn-outline">Login</a>
+            <a href="register.html" class="btn btn-primary">Register</a>
+            <a href="sell.html" class="btn btn-sell">Sell</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>BUY. SELL. GAME.</h1>
+        <p>Discover gaming accounts and digital gaming products from verified marketplace users.</p>
+        <div class="hero-buttons">
+            <a href="marketplace.html" class="btn btn-primary btn-lg">Browse Marketplace</a>
+        </div>
+        <div class="disclaimer">
+            ⚠️ Always check the game's publisher terms. Some games prohibit account transfers.
+        </div>
+    </section>
+
+    <!-- FEATURED GAMES -->
+    <section class="section">
+        <h2>Featured Games</h2>
+        <div class="card-grid">
+            <div class="game-card">
+                <h3>EA SPORTS FC</h3>
+                <p class="status allowed">Account Trading: Allowed</p>
+                <a href="game.html" class="btn btn-small">View Accounts</a>
+            </div>
+            <div class="game-card">
+                <h3>Roblox</h3>
+                <p class="status allowed">Account Trading: Allowed</p>
+                <a href="game.html" class="btn btn-small">View Accounts</a>
+            </div>
+            <div class="game-card">
+                <h3>Free Fire</h3>
+                <p class="status restricted">Account Trading: Restricted</p>
+                <button class="btn btn-small disabled">Not Available</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section dark-section">
+        <h2>How It Works</h2>
+        <div class="card-grid">
+            <div class="info-card"><h3>1. Browse</h3><p>Find verified accounts from trusted sellers</p></div>
+            <div class="info-card"><h3>2. Buy Secure</h3><p>Payments protected with buyer protection</p></div>
+            <div class="info-card"><h3>3. Get Delivered</h3><p>Safe account transfer via our system</p></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-links">

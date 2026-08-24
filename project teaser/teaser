@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daily Brain Teaser</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: white;
+            padding: 40px;
+        }
+
+        .brain-teaser {
+            width: 90%;
+            max-width: 900px;
+            background: #5550d9;
+            border-radius: 25px;
+            padding: 28px 35px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+
+        .left-side {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .icon {
+            width: 55px;
+            height: 55px;
+            background: white;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        .text h2 {
+            color: white;
+            margin: 0 0 8px;
+            font-size: 22px;
+        }
+
+        .text p {
+            color: #ddd;
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .play-button {
+            background: white;
+            color: #4945b8;
+            border: none;
+            padding: 18px 30px;
+            border-radius: 18px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .play-button:hover {
+            background: #eeeeff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="brain-teaser">
+
+        <div class="left-side">
+
+            <div class="icon">
+                🔥
+            </div>
+
+            <div class="text">
+                <h2>Daily Brain Teaser</h2>
+                <p>Solve today's puzzle to earn 50 bonus coins.</p>
+            </div>
+
+        </div>
+
+        <button class="play-button">
+            Play Now
+        </button>
+
+    </div>
+
+</body>
+</html><!-- EXPLORE CATEGORIES -->
+
+<section class="categories">
+
+    <div class="categories-header">
+        <h2>Explore Categories</h2>
+
+        <a href="#" onclick="viewAllCategories()">
+            View All
+        </a>
+    </div>
+
+    <div class="category-container">
+
+        <div class="category science" onclick="openCategory('Science')">
+            <div class="category-icon">
+                🔬
+            </div>
+            <h3>Science</h3>
+        </div>
+
+        <div class="category history" onclick="openCategory('History')">
+            <div class="category-icon">
+                📜
+            </div>
+            <h3>History</h3>
+        </div>
+
+        <div class="category technology" onclick="openCategory('Technology')">
+            <div class="category-icon">
+>                💻
+            </div>
+            <h3>Technology</h3>
+        </div>
+
+        <div class="category art" onclick="openCategory('Art')">
+            <div class="category-icon">
+                🎨
+            </div>
+            <h3>Art</h3>
+        </div>
+
+    </div>
+
+</section>
+
+
+<style>
+
+    /* EXPLORE CATEGORIES */
+
+    .categories {
+        width: 100%;
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 0 25px;
+        font-family: Arial, sans-serif;
+    }
+
+    .categories-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .categories-header h2 {
+        font-size: 24px;
+        color: #222;
+        margin: 0;
+    }
+
+    .categories-header a {
+        text-decoration: none;
+        color: #4d49c8;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .categories-header a:hover {
+        text-decoration: underline;
+    }
+
+    .category-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+
+    .category {
+        text-align: center;
+        padding: 25px 10px;
+        border-radius: 18px;
+        cursor: pointer;
+        transition: 0.25s;
+    }
+
+    .category:hover {
+        transform: translateY(-6px);
+        background: #f7f7f7;
+    }
+
+    .category-icon {
+        width: 80px;
+        height: 80px;
+        margin: auto;
+        border-radius: 50%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 35px;
+        margin-bottom: 15px;
+    }
+
+    /* Different icon backgrounds */
+
+    .science .category-icon {
+        background: #eeeeff;
+    }
+
+    .history .category-icon {
+        background: #ffe8d9;
+    }
+
+    .technology .category-icon {
+        background: #35d878;
+    }
+
+    .art .category-icon {
+        background: #ffdced;
+    }
+
+    .category h3 {
+        margin: 0;
+        font-size: 17px;
+        color: #222;
+    }
+
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+
+        .category-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+    }
+
+    @media (max-width: 400px) {
+
+        .category-container {
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .category-icon {
+            width: 65px;
+            height: 65px;
+            font-size: 28px;
+        }
+
+    }
+
+</style>
+
+
+<script>
+
+    function openCategory(category) {
+
+        alert(
+            "You selected the " +
+            category +
+            " category!"
+        );
+
+    }
+
+
+    function viewAllCategories() {
+
+        alert(
+            "Showing all quiz categories!"
+        );
+
+    }
+
+</script>

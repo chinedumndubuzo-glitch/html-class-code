@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VOID — Streetwear</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: white;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        /* NAVBAR */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(8, 8, 8, 0.95);
+            border-bottom: 1px solid #222;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 25px;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 900;
+            letter-spacing: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            color: #999;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            background: #171717;
+            border: 1px solid #333;
+            color: white;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .cart-count {
+            background: white;
+            color: black;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 10px;
+            position: relative;
+            top: -12px;
+            right: 8px;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 80% 30%, #303030, transparent 30%),
+                linear-gradient(120deg, #050505, #151515);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+            padding: 70px 25px;
+        }
+
+        .hero-small {
+            color: #aaa;
+            letter-spacing: 5px;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(65px, 12vw, 150px);
+            line-height: .85;
+            font-weight: 900;
+            letter-spacing: -8px;
+        }
+
+        .hero h1 span {
+            color: transparent;
+            -webkit-text-stroke: 2px white;
+        }
+
+        .hero p {
+            max-width: 500px;
+            color: #aaa;
+            margin: 30px 0;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .shop-btn {
+            display: inline-block;
+            padding: 17px 35px;
+            background: white;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .shop-btn:hover {
+            transform: translateY(-3px);
+            background: #ccc;
+        }
+
+        /* PRODUCTS */
+
+        .products-section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 90px 25px;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .section-heading h2 {
+            font-size: 40px;
+        }
+
+        .section-heading p {
+            color: #777;
+        }
+
+        .filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 35px;
+        }
+
+        .filter {
+            padding: 10px 18px;
+            background: #111;
+            color: white;
+            border: 1px solid #333;
+            cursor: pointer;
+        }
+
+        .filter.active,
+        .filter:hover {
+            background: white;
+            color: black;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product {
+            background: #111;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .product-image {
+            height: 330px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 90px;
+            background:
+                linear-gradient(135deg, #252525, #0d0d0d);
+        }
+
+        .product:nth-child(2) .product-image {
+            background: linear-gradient(135deg, #333, #121212);
+        }
+
+        .product:nth-child(3) .product-image {
+            background: linear-gradient(135deg, #202020, #444);
+        }
+
+        .product:nth-child(4) .product-image {
+            background: linear-gradient(135deg, #111, #333);
+        }
+
+        .product-info {
+            padding: 18px;
+        }
+
+        .product-info h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            color: #999;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            font-weight: bold;
+        }
+
+        .heart {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(0,0,0,.7);
+            color: white;
+            border: 1px solid #555;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .heart.liked {
+            color: red;
+        }
+
+        .quick-add {
+            width: 100%;
+            margin-top: 15px;
+            padding: 12px;
+            background: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* ABOUT */
+
+        .about {
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+            padding: 100px 25px;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: clamp(40px, 7vw, 80px);
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            max-width: 650px;
+            margin: auto;
+            color: #999;
+            line-height: 1.8;
+        }
+
+        /* CART */
+
+        .cart-overlay,
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.75);
+            z-index: 2000;
+            display: none;
+        }
+
+        .cart-overlay.show,
+        .modal-overlay.show {
+            display: block;
+        }
+
+        .cart {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: min(430px, 100%);
+            height: 100%;
+            background: #111;
+            padding: 25px;
+            overflow-y: auto;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .cart-item-image {
+            width: 70px;
+            height: 70px;
+            background: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-info h4 {
+            margin-bottom: 7px;
+        }
+
+        .quantity {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .quantity button {
+            background: #222;
+            border: 1px solid #444;
+            color: white;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+        }
+
+        .cart-total {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 16px;
+            margin-top: 20px;
+            background: white;
+            color: black;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .empty-cart {
+            color: #777;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        /* MODAL */
+
+        .modal {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: min(600px, 90%);
+            background: #111;
+            padding: 35px;
+            border: 1px solid #333;
+        }
+
+        .modal h2 {
+            margin-bottom: 20px;
+        }
+
+        .modal input {
+            width: 100%;
+            padding: 14px;
+            margin: 7px 0;
+            background: #1c1c1c;
+            border: 1px solid #333;
+            color: white;
+        }
+
+        .modal button {
+            margin-top: 15px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 60px 25px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #222;
+        }
+
+        footer strong {
+            color: white;
+            letter-spacing: 3px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .product-image {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            nav {
+                padding: 0 15px;
+            }
+
+            .hero {
+                min-height: 550px;
+            }
+
+            .hero h1 {
+                font-size: 70px;
+                letter-spacing: -5px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                height: 330px;
+            }
+
+            .section-heading {
+                display: block;
+            }
+
+            .section-heading p {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<header>
+    <nav>
+
+        <div class="logo">VOID</div>
+
+        <ul class="nav-links">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#shop">SHOP</a></li>
+            <li><a href="#about">ABOUT</a></li>
+        </ul>
+
+        <div class="nav-buttons">
+
+            <button class="nav-btn" onclick="openCart()">
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+
+        </div>
+
+    </nav>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            NEW COLLECTION — 2026
+        </div>
+
+        <h1>
+            WEAR<br>
+            <span>YOUR</span><br>
+            STORY.
+        </h1>
+
+        <p>
+            Streetwear made for people who refuse to blend in.
+            Minimal designs. Heavy attitude. Zero compromise.
+        </p>
+
+        <a href="#shop" class="shop-btn">
+            SHOP COLLECTION
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- SHOP -->
+
+<section class="products-section" id="shop">
+
+    <div class="section-heading">
+
+        <div>
+            <p>THE COLLECTION</p>
+            <h2>Latest Drops</h2>
+        </div>
+
+        <p id="productCount"></p>
+
+    </div>
+
+
+    <div class="filters">
+
+        <button class="filter active" onclick="filterProducts('all', this)">
+            ALL
+        </button>
+
+        <button class="filter" onclick="filterProducts('hoodie', this)">
+            HOODIES
+        </button>
+
+        <button class="filter" onclick="filterProducts('shirt', this)">
+            T-SHIRTS
+        </button>
+
+        <button class="filter" onclick="filterProducts('pants', this)">
+            PANTS
+        </button>
+
+    </div>
+
+
+    <div class="products" id="products"></div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+    <p>WHO WE ARE</p>
+
+    <h2>BUILT DIFFERENT.</h2>
+
+    <p>
+        VOID is an independent streetwear brand built around
+        individuality, confidence and self-expression.
+        We don't follow the culture. We create our own.
+    </p>
+
+</section>
+
+
+<!-- CART -->
+
+<div class="cart-overlay" id="cartOverlay">
+
+    <div class="cart">
+
+        <div class="cart-header">
+
+            <h2>Your Cart</h2>
+
+            <button class="close" onclick="closeCart()">
+                ×
+            </button>
+
+        </div>
+
+        <div id="cartItems"></div>
+
+        <div class="cart-total">
+
+            <strong>Total</strong>
+
+            <strong id="cartTotal">
+                $0
+            </strong>
+
+        </div>
+
+        <button class="checkout-btn" onclick="openCheckout()">
+            CHECKOUT
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- CHECKOUT -->
+
+<div class="modal-overlay" id="checkoutOverlay">
+
+    <div class="modal">
+
+        <div class="cart-header">
+
+            <h2>Checkout</h2>
+
+            <button class="close" onclick="closeCheckout()">
+                ×
+            </button>
+
+        </div>
+
+        <input
+            type="text"
+            id="customerName"
+            placeholder="Full Name"
+        >
+
+        <input
+            type="email"
+            id="customerEmail"
+            placeholder="Email"
+        >
+
+        <input
+            type="text"
+            id="customerAddress"
+            placeholder="Delivery Address"
+        >
+
+        <input
+            type="text"
+            id="customerCity"
+            placeholder="City"
+        >
+
+        <button
+            class="checkout-btn"
+            onclick="placeOrder()"
+        >
+            PLACE ORDER
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <strong>VOID</strong>
+
+    <p style="margin-top:15px;">
+        © 2026 VOID STREETWEAR. ALL RIGHTS RESERVED.
+    </p>
+
+</footer>
+
+
+<script>
+
+    /* PRODUCT DATABASE */
+
+    const products = [
+
+        {
+            id: 1,
+            name: "VOID Essential Hoodie",
+            category: "hoodie",
+            price: 65,
+            icon: "🧥"
+        },
+
+        {
+            id: 2,
+            name: "Shadow Oversized Tee",
+            category: "shirt",
+            price: 35,
+            icon: "👕"
+        },
+
+        {
+            id: 3,
+            name: "VOID Cargo Pants",
+            category: "pants",
+            price: 75,
+            icon: "👖"
+        },
+
+        {
+            id: 4,
+            name: "Midnight Graphic Tee",
+            category: "shirt",
+            price: 40,
+            icon: "👕"
+        },
+
+        {
+            id: 5,
+            name: "Heavyweight Black Hoodie",
+            category: "hoodie",
+            price: 80,
+            icon: "🧥"
+        },
+
+        {
+            id: 6,
+            name: "Utility Street Pants",
+            category: "pants",
+            price: 70,
+            icon: "👖"
+        },
+
+        {
+            id: 7,
+            name: "VOID Logo Tee",
+            category: "shirt",
+            price: 30,
+            icon: "👕"
+        },
+
+        {
+            id: 8,
+            name: "Oversized Grey Hoodie",
+            category: "hoodie",
+            price: 70,
+            icon: "🧥"
+        }
+
+    ];
+
+
+    let cart = [];
+
+
+    /* DISPLAY PRODUCTS */
+
+    function displayProducts(list = products) {
+
+        const container = document.getElementById("products");
+
+        container.innerHTML = "";
+
+        document.getElementById("productCount").textContent =
+            ${list.length} PRODUCTS;
+
+
+        list.forEach(product => {
+
+            container.innerHTML += `
+
+                <div class="product">
+
+                    <button
+                        class="heart"
+                        onclick="toggleHeart(this)"
+                    >
+                        ♡
+                    </button>
+
+                    <div
+                        class="product-image"
+                        onclick="showProduct(${product.id})"
+                    >
+                        ${product.icon}
+                    </div>
+
+                    <div class="product-info">
+
+                        <h3>
+                            ${product.name}
+                        </h3>
+
+                        <p>
+                            ${product.category.toUpperCase()}
+                        </p>
+
+                        <div class="price">
+                            $${product.price}
+                        </div>
+
+                        <button
+                            class="quick-add"
+                            onclick="addToCart(${product.id})"
+                        >
+                            ADD TO CART
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        });
+
+    }
+
+
+    /* FILTER PRODUCTS */
+
+    function filterProducts(category, button) {
+
+        document
+            .querySelectorAll(".filter")
+            .forEach(btn => btn.classList.remove("active"));
+
+        button.classList.add("active");
+
+
+        if (category === "all") {
+
+            displayProducts(products);
+
+        } else {
+
+            const filtered =
+                products.filter(product =>
+                    product.category === category
+                );
+
+            displayProducts(filtered);
+
+        }
+
+    }
+
+
+    /* ADD TO CART */
+
+    function addToCart(id) {
+
+        const product =
+            products.find(product => product.id === id);
+
+        const existing =
+            cart.find(item => item.id === id);
+
+
+        if (existing) {
+
+            existing.quantity++;
+
+        } else {
+
+            cart.push({
+                ...product,
+                quantity: 1
+            });
+
+        }
+
+
+        updateCart();
+
+        alert(${product.name} added to your cart!);
+
+    }
+
+
+    /* UPDATE CART */
+
+    function updateCart() {
+
+        const container =
+            document.getElementById("cartItems");
+
+        const count =
+            document.getElementById("cartCount");
+
+        const total =
+            document.getElementById("cartTotal");
+
+
+        count.textContent =
+            cart.reduce((sum, item) =>
+                sum + item.quantity, 0
+            );
+
+
+        if (cart.length === 0) {
+
+            container.innerHTML =
+                `<div class="empty-cart">
+                    Your cart is empty.
+                </div>`;
+
+            total.textContent = "$0";
+
+            return;
+        }
+
+
+        container.innerHTML = "";
+
+
+        let cartTotal = 0;
+
+
+        cart.forEach(item => {
+
+            cartTotal +=
+                item.price * item.quantity;
+
+
+            container.innerHTML += `
+
+                <div class="cart-item">
+
+                    <div class="cart-item-image">
+                        ${item.icon}
+                    </div>
+
+                    <div class="cart-item-info">
+
+                        <h4>
+                            ${item.name}
+                        </h4>
+
+                        <p>
+                            $${item.price}
+                        </p>
+
+                        <div class="quantity">
+
+                            <button
+                                onclick="changeQuantity(${item.id}, -1)"
+                            >
+                                −
+                            </button>
+
+                            <span>
+                                ${item.quantity}
+                            </span>
+
+                            <button
+                                onclick="changeQuantity(${item.id}, 1)"
+                            >
+                                +
+                            </button>
+
+                            <button
+                                onclick="removeItem(${item.id})"
+                            >
+                                🗑️
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        });
+
+
+        total.textContent =
+            "$" + cartTotal.toFixed(2);
+
+    }
+
+
+    /* CHANGE QUANTITY */
+
+    function changeQuantity(id, amount) {
+
+        const item =
+            cart.find(item => item.id === id);
+
+        if (!item) return;
+
+
+        item.quantity += amount;
+
+
+        if (item.quantity <= 0) {
+
+            cart =
+                cart.filter(item => item.id !== id);
+
+        }
+
+
+        updateCart();
+
+    }
+
+
+    /* REMOVE ITEM */
+
+    function removeItem(id) {
+
+        cart =
+            cart.filter(item => item.id !== id);
+
+        updateCart();
+
+    }
+
+
+    /* CART OPEN/CLOSE */
+
+    function openCart() {
+
+        document
+            .getElementById("cartOverlay")
+            .classList.add("show");
+
+        updateCart();
+
+    }
+
+
+    function closeCart() {
+
+        document
+            .getElementById("cartOverlay")
+            .classList.remove("show");
+
+    }
+
+
+    /* FAVORITES */
+
+    function toggleHeart(button) {
+
+        button.classList.toggle("liked");
+
+        if (button.classList.contains("liked")) {
+
+            button.textContent = "♥️";
+
+        } else {
+
+            button.textContent = "♡";
+
+        }
+
+    }
+
+
+    /* PRODUCT DETAILS */
+
+    function showProduct(id) {
+
+        const product =
+            products.find(product => product.id === id);
+
+        alert(
+            ${product.name}\n\n +
+            Category: ${product.category}\n +
+            Price: $${product.price}\n\n +
+            Premium streetwear from VOID.
+        );
+
+    }
+
+
+    /* CHECKOUT */
+
+    function openCheckout() {
+
+        if (cart.length === 0) {
+
+            alert("Your cart is empty.");
+
+            return;
+
+        }
+
+        document
+            .getElementById("checkoutOverlay")
+            .classList.add("show");
+
+    }
+
+
+    function closeCheckout() {
+
+        document
+            .getElementById("checkoutOverlay")
+            .classList.remove("show");
+
+    }
+
+
+    function placeOrder() {
+
+        const name =
+            document.getElementById("customerName").value;
+
+        const email =
+            document.getElementById("customerEmail").value;
+
+        const address =
+            document.getElementById("customerAddress").value;
+
+
+        if (!name || !email || !address) {
+
+            alert("Please fill in all required information.");
+
+            return;
+
+        }
+
+
+        alert(
+            ORDER CONFIRMED!\n\n +
+            Thank you ${name}!\n +
+            Your VOID order has been received.
+        );
+
+
+        cart = [];
+
+        updateCart();
+
+        closeCheckout();
+
+        closeCart();
+
+    }
+
+
+    /* START WEBSITE */
+
+    displayProducts();
+
+</script>
+
+</body>
+</html>
